@@ -8,11 +8,9 @@
 
   import { onMount } from 'svelte'
 
-  export let params
-
   let data = []
 
-  const apiUrl = 'http://freethrow-api.herokuapp.com/projects?featured=true'
+  const apiUrl = 'https://freethrow-api.herokuapp.com/projects?featured=true'
   let portfolioItems = []
 
   onMount(async () => {
