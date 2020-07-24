@@ -10,7 +10,7 @@
 
   let title = 'Portfolio'
 
-  const apiUrl = 'http://freethrow-api.herokuapp.com/projects'
+  const apiUrl = 'https://freethrow-api.herokuapp.com/projects'
 
   const getProjects = async () => {
     const response = await fetch(apiUrl)
