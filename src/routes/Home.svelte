@@ -12,7 +12,7 @@
 
   let data = []
 
-  const apiUrl = 'https://freethrow-api.herokuapp.com/projects?featured=true'
+  const apiUrl = 'http://freethrow-api.herokuapp.com/projects?featured=true'
   let portfolioItems = []
 
   onMount(async () => {

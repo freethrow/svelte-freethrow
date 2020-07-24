@@ -10,7 +10,7 @@
 
   export let params
 
-  const apiUrl = 'https://jsonplaceholder.typicode.com/posts/'
+  const apiUrl = 'http://jsonplaceholder.typicode.com/posts/'
   let data = []
   let webData
 
@@ -28,7 +28,7 @@
     let webData = await data.map((item, index) => ({
       brief: item.body.split(' ').slice(0, 12).join(' '),
       title: item.title.split(' ').slice(0, 3).join(' '),
-      imageUrl: `https://picsum.photos/id/${index}/400/300`,
+      imageUrl: `http://picsum.photos/id/${index}/400/300`,
     }))
 
     portfolioItems = webData
