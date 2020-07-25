@@ -61,39 +61,37 @@
 <section id="contact">
   <div class="container">
     <div class="row justify-content-lg-center">
-      <form autocomplete="off" name="contact" data-netlify="true" method="POST">
-
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            name="email"
-            class="form-control"
-            id="email"
-            placeholder="Email" />
-        </div>
-
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            name="name"
-            placeholder="Your name" />
-        </div>
-
-        <div class="form-group">
-          <textarea
-            style="min-width: 100%"
-            name="content"
-            class="form-control"
-            id="content"
-            cols="30"
-            rows="10" />
-        </div>
-
-        <button type="submit" class="btn btn-outline-dark">Send</button>
+      <form name="contact" method="POST" data-netlify="true">
+        <p>
+          <label>
+            Your Name:
+            <input type="text" name="name" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your Email:
+            <input type="email" name="email" />
+          </label>
+        </p>
+        <p>
+          <label>
+            Your Role:
+            <select name="role[]" multiple>
+              <option value="leader">Leader</option>
+              <option value="follower">Follower</option>
+            </select>
+          </label>
+        </p>
+        <p>
+          <label>
+            Message:
+            <textarea name="message" />
+          </label>
+        </p>
+        <p>
+          <button type="submit">Send</button>
+        </p>
       </form>
     </div>
 
