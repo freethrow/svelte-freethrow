@@ -61,7 +61,7 @@
 <section id="contact">
   <div class="container">
     <div class="row justify-content-lg-center">
-      <form name="contact" method="POST" data-netlify="true">
+      <form name="contact" method="POST" data-netlify="true" action="/">
         <p>
           <label>
             Your Name:
