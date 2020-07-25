@@ -46,6 +46,7 @@
     <div class="waiting">
       <h2>Loading projects...</h2>
       <p>Please hold on: heroku is waking up...</p>
+      <i class="fas fa-cog fa-spin fa-7x" />
     </div>
   {:then result}
     <div class="container">

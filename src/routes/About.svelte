@@ -9,8 +9,10 @@
     background-color: #fff;
     opacity: 0.9;
     padding: 1rem;
+  }
 
-    font-weight: 400;
+  #contact {
+    margin: 2rem 0;
   }
 </style>
 
@@ -51,6 +53,49 @@
       <li>Data Visualization (D3.js, python, Tableau)</li>
       <li>Data Driven Product Design</li>
     </ol>
+
+  </div>
+
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="row justify-content-lg-center">
+      <form autocomplete="off" name="contact" data-netlify="true">
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="email"
+            placeholder="Email" />
+        </div>
+
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            name="name"
+            placeholder="Your name" />
+        </div>
+
+        <div class="form-group">
+          <textarea
+            style="min-width: 100%"
+            name="content"
+            class="form-control"
+            id="content"
+            cols="30"
+            rows="10" />
+        </div>
+
+        <button type="submit" class="btn btn-outline-dark">Send</button>
+      </form>
+    </div>
 
   </div>
 

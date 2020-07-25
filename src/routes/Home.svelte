@@ -13,11 +13,10 @@
   const apiUrl = 'https://freethrow-api.herokuapp.com/projects?featured=true'
   let portfolioItems = []
 
-  onMount(async () => {
+  const getProjects = async () => {
     const response = await fetch(apiUrl)
-    data = await response.json()
+    let data = await response.json()
     console.log(data)
-
     let webData = await data.map((item) => ({
       brief: item.brief,
       title: item.title,
@@ -25,16 +24,39 @@
       webUrl: item.web_url,
       slug: item.slug,
     }))
-    console.log(webData)
-    portfolioItems = webData
-  })
+
+    console.log('WebData:', webData)
+    return webData
+  }
+  portfolioItems = getProjects()
 </script>
+
+<style>
+  .waiting {
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
 
 <div>
   <Header />
   <What />
   <div class="divider" />
 
-  <ProjectsGrid {portfolioItems} title="Recent Projects" />
-
+  {#await portfolioItems}
+    <div class="waiting">
+      <h2>Loading projects...</h2>
+      <p>Please hold on: heroku is waking up...</p>
+      <i class="fas fa-cog fa-spin fa-7x" />
+    </div>
+  {:then result}
+    <div class="container">
+      <ProjectsGrid portfolioItems={result} title="Recent Projects" />
+    </div>
+  {:catch error}
+    <p style="color: red">{error}</p>
+  {/await}
 </div>
