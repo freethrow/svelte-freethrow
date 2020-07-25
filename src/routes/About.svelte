@@ -61,7 +61,7 @@
 <section id="contact">
   <div class="container">
     <div class="row justify-content-lg-center">
-      <form autocomplete="off" name="contact" data-netlify="true">
+      <form autocomplete="off" name="contact" data-netlify="true" method="POST">
 
         <div class="form-group">
           <label for="email">Email</label>
