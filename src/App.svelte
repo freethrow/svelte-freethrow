@@ -5,6 +5,7 @@
   import Home from './routes/Home.svelte'
   import Projects from './routes/Projects.svelte'
   import SingleProject from './routes/SingleProject.svelte'
+  import SingleArticle from './routes/SingleArticle.svelte'
   import Articles from './routes/Articles.svelte'
   import Navbar from './components/Navbar.svelte'
   import Footer from './components/Footer.svelte'
@@ -29,7 +30,7 @@
   )
   router('/articles', () => (page = Articles))
   router(
-    '/article/:id',
+    '/article/:slug',
 
     // Before we set the component
     (ctx, next) => {

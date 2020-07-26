@@ -14,7 +14,8 @@
           imageUrl={item.imageUrl}
           brief={item.brief}
           slug={item.slug}
-          webUrl={item.webUrl} />
+          webUrl={item.webUrl}
+          entity={item.entity} />
       {/each}
     </div>
   </div>

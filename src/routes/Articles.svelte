@@ -1,49 +1,47 @@
 <script>
   import Header from '../components/Header.svelte'
   import Navbar from '../components/Navbar.svelte'
-
+  import What from '../components/What.svelte'
   import ProjectsGrid from '../components/ProjectsGrid.svelte'
   import Footer from '../components/Footer.svelte'
   import Card from '../components/Card.svelte'
+  import Waiting from '../components/Waiting.svelte'
 
-  import { onMount } from 'svelte'
+  let title = 'Articles'
 
-  export let params
+  const apiUrl = 'https://freethrow-api.herokuapp.com/articles'
 
-  const apiUrl = 'https://jsonplaceholder.typicode.com/posts/'
-  let data = []
-  let webData
-
-  const randInt = () => {
-    return Math.floor(Math.random() * Math.floor(250))
-  }
-
-  let portfolioItems = []
-  let title = 'Articles, snippets, thoughts and Stuff - in progress'
-
-  onMount(async () => {
+  const getArticles = async () => {
     const response = await fetch(apiUrl)
-    data = await response.json()
-
-    let webData = await data.map((item, index) => ({
-      brief: item.body.split(' ').slice(0, 12).join(' '),
-      title: item.title.split(' ').slice(0, 3).join(' '),
-      imageUrl: `https://picsum.photos/id/${index}/400/300`,
+    let data = await response.json()
+    console.log(data)
+    let webData = await data.map((item) => ({
+      brief: item.brief,
+      title: item.title,
+      imageUrl: item.images[0].picture.url,
+      webUrl: item.web_url,
+      slug: item.slug,
+      entity: 'article',
     }))
 
-    portfolioItems = webData
-  })
+    console.log('WebData:', webData)
+    return webData
+  }
+
+  let articles = getArticles()
 </script>
 
-<style>
-  #articles {
-  }
-</style>
+<div id="portfolio">
+  {#await articles}
+    <Waiting
+      title="Fetching articles..."
+      message="Please hold on, Heroku is waking up." />
+  {:then result}
+    <div class="container">
+      <ProjectsGrid portfolioItems={result} {title} />
+    </div>
+  {:catch error}
+    <p style="color: red">{error}</p>
+  {/await}
 
-<section id="articles">
-  <div class="container">
-
-    <ProjectsGrid {portfolioItems} {title} } />
-
-  </div>
-</section>
+</div>

@@ -14,6 +14,10 @@
   #contact {
     margin: 2rem 0;
   }
+
+  a {
+    color: red;
+  }
 </style>
 
 <section id="about">
@@ -26,8 +30,9 @@
       analyst, freelance developer, former energy scientist, and data analyst.
     </p>
     <p>
-      My curriculum is available in PDF, but I tend to write here about
-      interesting things and projects.
+      My curriculum
+      <a href="/cv.pdf">is available in PDF</a>
+      , but I tend to write here about interesting things and projects.
     </p>
 
     <h3>What can I do for you?</h3>
@@ -52,48 +57,23 @@
       <li>Machine Learning Algorithms</li>
       <li>Data Visualization (D3.js, python, Tableau)</li>
       <li>Data Driven Product Design</li>
+      <li>Office automation - reporting - visualization</li>
     </ol>
-
-  </div>
-
-</section>
-
-<section id="contact">
-  <div class="container">
-    <div class="row justify-content-lg-center">
-      <form name="contact" method="POST" data-netlify="true" action="/">
-        <p>
-          <label>
-            Your Name:
-            <input type="text" name="name" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Email:
-            <input type="email" name="email" />
-          </label>
-        </p>
-        <p>
-          <label>
-            Your Role:
-            <select name="role[]" multiple>
-              <option value="leader">Leader</option>
-              <option value="follower">Follower</option>
-            </select>
-          </label>
-        </p>
-        <p>
-          <label>
-            Message:
-            <textarea name="message" />
-          </label>
-        </p>
-        <p>
-          <button type="submit">Send</button>
-        </p>
-      </form>
-    </div>
+    <h3>Visualization.site?</h3>
+    <p>
+      My old site still lives on
+      <a href="http://www.freethrow.rs">freethrow.rs</a>
+      and I bought this domain on a sale. I thought it was cool and since most
+      of my work is mostly in the visualization field I made another place for
+      myself on the net.
+    </p>
+    <h3>Stack?</h3>
+    <p>
+      I used this opportunity to try out a combination of strapi - a fast API
+      builder based on Koa.js deployed on Heroku with a MongoDB collection as a
+      database. The images are hosted on Cloudinary and the app/website itself
+      is built with Svelte.js, a wonderful JS compiler.
+    </p>
 
   </div>
 

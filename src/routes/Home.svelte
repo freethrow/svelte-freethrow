@@ -23,6 +23,7 @@
       imageUrl: item.images[0].picture.url,
       webUrl: item.web_url,
       slug: item.slug,
+      entity: 'project',
     }))
 
     console.log('WebData:', webData)

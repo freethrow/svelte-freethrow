@@ -4,6 +4,7 @@
   export let brief
   export let webUrl
   export let slug
+  export let entity
 </script>
 
 <style scoped>
@@ -51,7 +52,7 @@
     <p class="card-text">{brief}</p>
     <p class="card-text">
       <small class="text-muted">
-        <a class="btn btn-primary btn-sm" href="/project/{slug}">
+        <a class="btn btn-primary btn-sm" href="/{entity}/{slug}">
           project link
         </a>
       </small>

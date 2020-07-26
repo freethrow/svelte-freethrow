@@ -10,12 +10,12 @@
 
   let slug = params.slug
 
-  const apiUrl = `https://freethrow-api.herokuapp.com/projects?slug=${slug}`
-  let data = []
+  const apiUrl = `https://freethrow-api.herokuapp.com/articles?slug=${slug}`
 
   const getProject = async () => {
     const response = await fetch(apiUrl)
-    data = await response.json()
+    const data = await response.json()
+    console.log(data)
     return data[0]
   }
 
@@ -40,14 +40,6 @@
     align-items: center;
     justify-content: center;
   }
-
-  .project-content img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-    border: 4px solid black;
-  }
 </style>
 
 <div class="container">
@@ -64,17 +56,12 @@
   {:then project}
     <div class="project">
       <h2>{project.title}</h2>
-      {#if project.web_url}
-        <p class="url">
-          <a href={project.web_url}>live link</a>
-        </p>
-      {/if}
 
       {@html marked(project.brief)}
       <img class="featured" src={project.images[0].picture.url} alt="" />
       <hr />
       <div class="project-content">
-        {@html marked(project.description)}
+        {@html marked(project.md_content)}
       </div>
     </div>
   {:catch error}

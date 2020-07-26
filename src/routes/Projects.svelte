@@ -5,6 +5,7 @@
   import ProjectsGrid from '../components/ProjectsGrid.svelte'
   import Footer from '../components/Footer.svelte'
   import Card from '../components/Card.svelte'
+  import Waiting from '../components/Waiting.svelte'
 
   import { onMount } from 'svelte'
 
@@ -22,6 +23,7 @@
       imageUrl: item.images[0].picture.url,
       webUrl: item.web_url,
       slug: item.slug,
+      entity: 'project',
     }))
 
     console.log('WebData:', webData)
@@ -31,23 +33,11 @@
   let portfolioItems = getProjects()
 </script>
 
-<style>
-  .waiting {
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-</style>
-
 <div id="portfolio">
   {#await portfolioItems}
-    <div class="waiting">
-      <h2>Loading projects...</h2>
-      <p>Please hold on: heroku is waking up...</p>
-      <i class="fas fa-cog fa-spin fa-7x" />
-    </div>
+    <Waiting
+      title="Fetching projects..."
+      message="Please hold on, Heroku is waking up." />
   {:then result}
     <div class="container">
       <ProjectsGrid portfolioItems={result} {title} />
